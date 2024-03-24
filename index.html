@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodct Card</title>
+    <style>
+        body{
+            background-color: #e6e6e6;
+        }
+        .watch-img{
+            height: 100px;
+            display: block;
+            margin: 10px auto;
+            border-radius: 20px;
+            background-image: linear-gradient( 135deg, #FFF5C3 10%, #9452A5 100%);
+            padding:10px 40px;
+
+          
+        }
+        .product-card{
+            background-color: #fff;
+            width: 200px;
+            border-radius: 20px;
+         
+            box-shadow: 0 0 10px rgba(0,0, 0, 1);
+            display: block;
+            margin: 30px auto;
+            padding: 5px;
+            
+        }
+        .prod-title{
+            font-size: 18px;
+            
+
+        }
+        .card-body{
+            margin-left: 7px;
+        }
+        .desc{
+            font-size: 15px;
+        }
+        .prod-price{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .btn{
+            
+            background-image: linear-gradient( 135deg, #FFF5C3 10%, #9452A5 100%);
+            border: none;
+            color: #101010;
+            border-radius: 20px;
+            padding: 5px 20px;
+            display: block;
+            margin: 10px auto;
+        }
+        .btn-quantity{
+            height: 25px;
+        }
+        .quantity-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .quantity-text{
+            font-size: 25px;
+            margin: auto 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <img src="watch.webp" class="watch-img">
+        <div class="card-body">
+        <h1 class="prod-title">Smart Watch</h1>
+        <p>
+            <ul class="desc">
+          <li>Simple and Stylish </li>
+          <li>Step counter  </li>
+          <li>Heart rate monitor</li>
+          <li>Calorie Counter </li>
+        </ul>
+        </p>
+        <p class="prod-price">
+            ₹1200/-
+        </p>
+        <p id="show-qantity">1 x 1200</p>
+        <p id="show-total">Total:1200</p>
+        <div class="quantity-container">
+            <img src="minus.png" class="btn-quantity" onclick="dec()" >
+            <span class="quantity-text" id="quantity-text">1</span>
+            <img src="plus.png" class="btn-quantity" onclick="inc()">
+        </div>
+       
+        <button type="button" class="btn">Buy Now</button>
+    </div>
+    </div>
+    <script>
+        function inc(){
+           const quantityText = document.getElementById("quantity-text");
+           const showQantity = document.getElementById("show-qantity");
+           const showTotal = document.getElementById("show-total");
+          let quantity =parseInt( quantityText.innerText);
+         
+
+          if(quantity<10)
+          {
+            quantityText.innerText = ++quantity;
+          }
+         else {
+            alert("you you can't add more than 10 item");
+        }
+        showQantity.innerText = `${Qantity} x 1200`;
+        showTotal.innerText =`Total:${quantity*1200}`;
+        }
+        
+        function dec(){
+           const quantityText = document.getElementById('quantity-text');
+           const showQantity = document.getElementById('show-qantity');
+           const showTotal = document.getElementById("show-total");
+          let quantity =parseInt( quantityText.innerText);
+          
+        
+          if(quantity>10)
+          {
+            quantityText.innerText = --quantity;
+          }
+         else {
+            alert("you you can't add less than 10 item");
+        }
+        showQantity.innerText = `${Qantity} x 1200`;
+        showTotal.innerText =`Total:${quantity*1200}`;
+        }
+    </script>
+</body>
+</html>
